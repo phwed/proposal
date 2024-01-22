@@ -39,13 +39,33 @@ export default function Home() {
       // set the mood back to erm
       setTimeout(() => {
         setMood(MOODS.ERM);
-      }, 1000);
+      }, 3500);
+    }
+  }, [mood]);
+
+  React.useEffect(() => {
+    if (mood === MOODS.YES) {
+      setTimeout(() => {
+        window.location.href = "/yes";
+      }, 3500);
     }
   }, [mood]);
 
   return (
     <div className="bg-pink-200 h-[100dvh] flex flex-col justify-center items-center gap-10 relative">
-      <h1 className="font-title text-4xl">Will you marry me</h1>
+      <h1 className="font-title text-4xl text-center">
+        {mood === MOODS.ERM
+          ? "Will you marry me"
+          : mood === MOODS.YES
+          ? "Yay!"
+          : mood === MOODS.NO && noClickCount === 1
+          ? "LOL I knew you will try to click no first"
+          : mood === MOODS.NO && noClickCount === 2
+          ? "You know you want to say yes :)"
+          : mood === MOODS.NO && noClickCount === 3
+          ? "LOL NICE TRY, BUT YOU HAVE TO SAY YES"
+          : ""}
+      </h1>
 
       <img
         src={
