@@ -55,7 +55,7 @@ export default function Home() {
     <div className="bg-pink-200 h-[100dvh] flex flex-col justify-center items-center gap-10 relative">
       <h1 className="font-title text-4xl text-center">
         {mood === MOODS.ERM
-          ? "Will you marry me"
+          ? "Josie, will you marry me?"
           : mood === MOODS.YES
           ? "Yay!"
           : mood === MOODS.NO && noClickCount === 1
